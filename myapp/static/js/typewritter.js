@@ -1,7 +1,7 @@
 const quotes = [
     "sudo apt-get update cyber_news",
-    "#1 Trusted Cybersecurity News Platform",
-    "Bits, Bytes, and Breaking News"
+    "#1 Trusted Cybersecurity News Platform.",
+    "Bits, Bytes, and Breaking News."
 ];
 
 let currentQuoteIndex = 0;
