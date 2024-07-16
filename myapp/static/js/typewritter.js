@@ -28,10 +28,9 @@ function eraseQuote() {
         currentCharIndex--;
         setTimeout(eraseQuote, 30);
     } else {
-        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length; // Loop through quotes
+        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
         setTimeout(typeQuote, 500);
     }
 }
 
-// Start the typewriter effect
 typeQuote();

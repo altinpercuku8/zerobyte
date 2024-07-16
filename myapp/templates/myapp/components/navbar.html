@@ -1,3 +1,4 @@
+{% load static %}
 <div class="top-line d-flex justify-content-between text-white">
     <div class="top-left">
         <p id="quotes">
@@ -10,5 +11,18 @@
             <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://x.com/"><i class="fa-brands fa-twitter"></i></a>
         </div>
+    </div>
+</div>
+
+<div class="navbar menu d-flex justify-content-between">
+    <div class="logo">
+        <img src="{% static 'images/logo.png' %}" height="100px" alt="">
+    </div>
+    <i class="fa-solid fa-bars" id="openMenu"></i>
+    <div class="links">
+        <li><i class="fa-solid fa-xmark" id="closeMenu"></i></li>
+        <li><a href="#" class="cool-link">Home</a></li>
+        <li><a href="#" class="cool-link">Shop</a></li>
+        <li><a href="#" class="cool-link">Contact</a></li>
     </div>
 </div>
