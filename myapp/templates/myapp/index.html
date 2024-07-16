@@ -5,8 +5,40 @@
 Home
 {% endblock %}
 
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
 {% block body %}
-    <div class="container">
-        
+
+<div class="container row p-5">
+    <div class="posts col-md-10">
+    {% for post in posts %}
+    <div class="card mb-3 border-0">
+        <div class="row d-flex align-items-center">
+            <div class="col-md-4">
+                <img src="{{ post.post_image.url }}" class="card-img p-2" alt="{{ post.post_title }}">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="#" class="text-black">{{ post.post_title }}</a></h5>
+                    <p class="card-text p-2">{{ post.post_content|slice:":200" }}...</p>
+                    <div class="card-info d-flex justify-content-between">
+                        <div class="date post-info">
+                            {{ post.created_at }}
+                        </div>
+                        <div class="author post-info">
+                            @{{ post.post_author }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    {% endfor %}
+    </div>
+    <div class="related col-md-2">
+        altin
+    </div>
+</div>
 {% endblock %}

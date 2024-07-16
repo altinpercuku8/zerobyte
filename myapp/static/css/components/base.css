@@ -7,7 +7,7 @@
 }
 
 body{
-    z-index: 1;
+    z-index: 999;
 }
 
 /* navbar */
@@ -56,7 +56,7 @@ i.fa-bars, i.fa-xmark{
 
 .links li{
     display: inline-block;
-    margin: 0 10px;
+    margin: 0 15px;
 }
 .links li a{
     font-family: "Raleway", sans-serif;
@@ -80,6 +80,7 @@ i.fa-bars, i.fa-xmark{
         height: 100vh;
         top: 0;
         right: 0;
+        z-index: 1;
         overflow: hidden;
         text-align: center;
         background-color: white;
