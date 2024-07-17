@@ -46,6 +46,9 @@ body{
     box-shadow: 10px 3px 10px rgb(0 0 0 / 0.2);
 }
 
+.logo img{
+    cursor: pointer;
+}
 
 i.fa-bars, i.fa-xmark{
     display: none;

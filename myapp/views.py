@@ -5,4 +5,5 @@ from .models import Posts
 
 def index(request):
     posts = Posts.objects.all()
-    return render(request, 'myapp/index.html', {'posts':posts})
+    latest_posts = Posts.objects.all().order_by('-created_at')[:3]
+    return render(request, 'myapp/index.html', {'posts':posts,'latest':latest_posts})

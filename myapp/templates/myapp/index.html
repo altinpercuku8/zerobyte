@@ -11,15 +11,15 @@ Home
 
 {% block body %}
 
-<div class="container row p-5">
-    <div class="posts col-md-10">
+<div class="container-fluid row p-5">
+    <div class="posts col-md-8">
     {% for post in posts %}
     <div class="card mb-3 border-0">
         <div class="row d-flex align-items-center">
-            <div class="col-md-4">
-                <img src="{{ post.post_image.url }}" class="card-img p-2" alt="{{ post.post_title }}">
+            <div class="col-lg-4">
+                <img src="{{ post.post_image.url }}" class="card-img rounded p-2" alt="{{ post.post_title }}">
             </div>
-            <div class="col-md-8">
+            <div class="col-lg-8">
                 <div class="card-body">
                     <h5 class="card-title"><a href="#" class="text-black">{{ post.post_title }}</a></h5>
                     <p class="card-text p-2">{{ post.post_content|slice:":200" }}...</p>
@@ -37,8 +37,19 @@ Home
     </div>
     {% endfor %}
     </div>
-    <div class="related col-md-2">
-        altin
+    <div class="related col-lg-4">
+        <a href="https://safebase.io/" id="ad">
+            <img src="{% static 'images/safebase.png' %}" width="100%" class="img-fluid" alt="">
+        </a>
+
+        <div class="trending-posts">
+            <h2 class="mx-2 my-4">
+                - Latest Posts
+            </h2>
+            {% for title in latest %}
+                <li class="p-2"><a href="#">{{ title.post_title }}</a></li>
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}
