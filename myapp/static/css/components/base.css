@@ -79,7 +79,7 @@ i.fa-bars, i.fa-xmark{
     .links{
         position: absolute;
         display: block;
-        width: 100%;
+        width: 0;
         height: 100vh;
         top: 0;
         right: 0;

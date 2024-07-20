@@ -1,0 +1,41 @@
+{% extends 'myapp/components/base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ post.post_title }}
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/post.css' %}">
+{% endblock %}
+
+
+{% block body %}
+
+<div class="back-btn m-4 fs-2">
+    <i class="fa-solid fa-arrow-left" onclick="history.back()"></i>
+</div>
+<div class="container">
+    <div class="post-image my-5">
+        <img src="{{ post.post_image.url }}" class="img-fluid">
+    </div>
+    <div class="post-title my-3 text-left">
+        <h3>
+            {{ post.post_title }}
+        </h3>
+    </div>
+    <p class="post-text my-4 text">
+        {{ post.post_content}}
+    </p>
+    <div class="post-info d-flex justify-content-between my-5">
+        <div class="date post-info">
+            {{ post.created_at }}
+        </div>
+        <div class="author post-info">
+            @{{ post.post_author }}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

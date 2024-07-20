@@ -16,13 +16,16 @@
 
 <div class="navbar menu d-flex justify-content-between">
     <div class="logo">
-        <img src="{% static 'images/logo.png' %}" height="100px" alt="">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'images/logo.png' %}" height="100px" alt="">
+        </a>
     </div>
     <i class="fa-solid fa-bars" id="openMenu"></i>
     <div class="links">
         <li><i class="fa-solid fa-xmark" id="closeMenu"></i></li>
         <li><a href="{% url 'home' %}" class="cool-link">Home</a></li>
-        <li><a href="#" class="cool-link">Shop</a></li>
+        <li><a href="#" class="cool-link">Threads</a></li>
         <li><a href="#" class="cool-link">Contact</a></li>
+        <li><a href="#" class="cool-link mx-2" ><i class="fa-regular fa-user"></i></a></li>
     </div>
 </div>

@@ -20,18 +20,20 @@ Home
                 <img src="{{ post.post_image.url }}" class="card-img rounded p-2" alt="{{ post.post_title }}">
             </div>
             <div class="col-lg-8">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="#" class="text-black">{{ post.post_title }}</a></h5>
-                    <p class="card-text p-2">{{ post.post_content|slice:":200" }}...</p>
-                    <div class="card-info d-flex justify-content-between">
-                        <div class="date post-info">
-                            {{ post.created_at }}
-                        </div>
-                        <div class="author post-info">
-                            @{{ post.post_author }}
+                <a href="{% url 'post' pk=post.id %}" style="text-decoration: none; color: black;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.post_title }}</h5>
+                        <p class="card-text p-2">{{ post.post_content|slice:":200" }}...</p>
+                        <div class="card-info d-flex justify-content-between">
+                            <div class="date post-info">
+                                {{ post.created_at }}
+                            </div>
+                            <div class="author post-info">
+                                @{{ post.post_author }}
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
@@ -47,7 +49,7 @@ Home
                 - Latest Posts
             </h2>
             {% for title in latest %}
-                <li class="p-2"><a href="#">{{ title.post_title }}</a></li>
+                <li class="p-2"><a href="{% url 'post' pk=title.id %}">{{ title.post_title }}</a></li>
             {% endfor %}
         </div>
     </div>

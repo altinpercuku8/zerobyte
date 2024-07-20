@@ -1,10 +1,11 @@
 from django.urls import path
-from .views import index
+from .views import index, post
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', index, name='home')
+    path('', index, name='home'),
+    path('post/<int:pk>/',post, name='post'),
 ]
 
 if settings.DEBUG:
