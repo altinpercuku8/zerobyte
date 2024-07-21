@@ -1,0 +1,45 @@
+{% extends 'myapp/components/base.html' %}
+{% load static %}
+{% block title %}
+Register
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+
+
+{% block body %}
+    <div class="container my-5">
+        <h1 class="log-text fs-1 text-center">
+            Register.
+        </h1>
+        <form method="POST" class="mx-auto my-5">
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert alert-info text-center">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+            {% csrf_token %}
+            {{ form.username.label }}
+            {{ form.username }}
+            {{ form.email.label }}
+            {{ form.email }}
+            {{ form.password1.label }}
+            {{ form.password1 }}
+            {{ form.password2.label }}
+            {{ form.password2 }}
+            <div class="buttons my-4 d-flex justify-content-between">
+                    <button onclick="history.back()" class="left">Go Back</button>
+                    <button type="submit" class="right">Continue</button>
+            </div>
+
+            <p class="register-link my-3 text-decoration-dashed">
+                Already have an account ? <a href="{% url 'login' %}">LOG IN</a> !
+            </p>
+        </form>
+    </div>
+{% endblock %}

@@ -17,15 +17,21 @@ Login
         </h1>
         <form method="POST" class="mx-auto my-5">
             {% csrf_token %}
-
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} text-center">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
             <label for="username">
                 Username
             </label>
-            <input type="text" id="username" class="field username" required>
+            <input type="text" id="username" name="username" class="field username" required>
             <label for="password">
                 Password
             </label>
-            <input type="text" id="password" class="field password" required>
+            <input type="password" id="password" name="password" class="field password" required>
 
             <div class="buttons my-4 d-flex justify-content-between">
                     <button onclick="history.back()" class="left">Go Back</button>
@@ -33,7 +39,7 @@ Login
             </div>
 
             <p class="register-link my-3 text-decoration-dashed">
-                Don't have an account <a href="{% url 'register' %}">Register</a> !
+                Don't have an account ? <a href="{% url 'register' %}">REGISTER</a> !
             </p>
         </form>
     </div>
