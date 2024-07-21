@@ -25,7 +25,7 @@
             {{ post.post_title }}
         </h3>
     </div>
-    <p class="post-text my-4 text">
+    <p class="post-text my-4 text p-4 lh-lg">
         {{ post.post_content}}
     </p>
     <div class="post-info d-flex justify-content-between my-5">
@@ -33,7 +33,7 @@
             {{ post.created_at }}
         </div>
         <div class="author post-info">
-            @{{ post.post_author }}
+            Posted by: @{{ post.post_author }}
         </div>
     </div>
 </div>

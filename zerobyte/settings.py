@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
+    'authentication',
 ]
 
 MIDDLEWARE = [
@@ -117,6 +118,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    # Add paths to additional static file directories here
+    os.path.join(BASE_DIR, 'authentication/static'),
+    os.path.join(BASE_DIR, 'myapp/static')
+    # You can add more directories if needed
+]
 
 
 MEDIA_URL = '/media/'
