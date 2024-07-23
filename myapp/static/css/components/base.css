@@ -71,6 +71,11 @@ i.fa-bars, i.fa-xmark{
 .links li a:hover{
     color: #b4b4b4;
 }
+.links li a.log-out{
+    color: #282828;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
 
 @media screen and (max-width:768px) {
     #openMenu, #closeMenu{

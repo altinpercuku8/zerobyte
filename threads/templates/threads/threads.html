@@ -1,0 +1,22 @@
+{% extends 'myapp/components/base.html' %}
+{% load static %}
+
+{% block title %}
+Threads
+{% endblock %}
+
+
+
+{% block body %}
+
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Post</button>
+        </form>
+
+        {% for thread in threads %}
+        <div class="thread">{{ thread.thread_title }}</div>
+        {% endfor %}
+{% endblock %}

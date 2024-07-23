@@ -26,14 +26,22 @@ def register(request):
     return render(request, 'authentication/register.html', context)
 
 def login_user(request):
-    if request.method == "POST":
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        
-        if user is not None:
-            login(request, user)
-            return redirect('home')
-        else:
-            messages.info(request, f'{username} does not exist.')
-    return render(request, 'authentication/login.html')
+    if not request.user.is_authenticated:
+        if request.method == "POST":
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            user = authenticate(request, username=username, password=password)
+            
+            if user is not None:
+                login(request, user)
+                return redirect('home')
+            else:
+                messages.info(request, f'{username} does not exist.')
+        return render(request, 'authentication/login.html')
+    else:
+        return redirect('home')
+
+
+def log_out(request):
+    logout(request)
+    return redirect('login')

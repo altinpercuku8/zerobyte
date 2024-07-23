@@ -1,0 +1,25 @@
+from django.shortcuts import render, HttpResponse
+from django.contrib.auth.decorators import login_required
+from .models import Thread
+from .forms import ThreadForm
+
+
+@login_required(login_url="login")
+def threads(request):
+    threads = Thread.objects.all()
+    form = ThreadForm()
+    if request.method == "POST":
+        form = ThreadForm(request.POST)
+        thread = form.save(commit=False)
+        thread.thread_author = request.user
+        thread.save()
+
+    context = {
+        'threads': threads,
+        'form': form,
+    }
+    return render(request, 'threads/threads.html', context)
+
+
+
+
