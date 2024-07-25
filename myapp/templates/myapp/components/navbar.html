@@ -25,7 +25,7 @@
         <li><i class="fa-solid fa-xmark" id="closeMenu"></i></li>
         <li><a href="{% url 'home' %}" class="cool-link">Home</a></li>
         <li><a href="{% url 'threads' %}" class="cool-link">Threads</a></li>
-        <li><a href="#" class="cool-link">Contact</a></li>
+        <li><a href="{% url 'contact' %}" class="cool-link">Contact</a></li>
         {% if request.user.is_authenticated %}
             <li><a href="{% url 'logout' %}" class="log-out" >Log out</a></li>
         {% else %}

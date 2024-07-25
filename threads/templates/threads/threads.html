@@ -45,7 +45,7 @@ Threads
     <div class="alert alert-info text-center">
         Use the form down below to post a thread:
     </div>
-        <form method="post">
+        <form method="post" id="forma">
             {% csrf_token %}
             <label for="thread_title">Thread title</label>
             {{ form.thread_title }}
@@ -54,4 +54,9 @@ Threads
             <button type="submit">Post</button>
         </form>
     </div>
+    <script>
+        function resetForm(){
+            document.getElementById("forma").reset();
+        }
+    </script>
 {% endblock %}

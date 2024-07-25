@@ -12,3 +12,8 @@ def index(request):
 def post(request, pk):
     post = get_object_or_404(Posts, pk=pk)
     return render(request, 'myapp/post.html', {'post':post})
+
+
+
+def contact(request):
+    return render(request, 'myapp/contact/contact.html')

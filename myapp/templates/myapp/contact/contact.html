@@ -1,0 +1,57 @@
+{% extends 'myapp/components/base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+
+{% block body %}
+    <div class="container row contact">
+        <div class="col-lg-6 p-4">
+            <div class="text display-3">
+                Let's get in touch.
+            </div>
+            <form method="post" id="contactForm">
+                {% csrf_token %}
+                <label for="fullname">Full name</label>
+                <input type="text" class="field" required id="fullname" name="fullname">
+                <label for="email">E-mail</label>
+                <input type="email" class="field" required name="email" id="email">
+                <label for="message">Your message</label>
+                <textarea name="message" class="field" required id="message"></textarea>
+
+                <button type="submit">Get in touch.</button>
+            </form>
+        </div>
+        <div class="col-lg-6">
+            <img src="{% static 'images/contact.png' %}" class="img-fluid mx-auto" alt="">
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const input = document.getElementsByClassName('feild');
+
+        form.addEventListener('submit', function(e){
+            let messages = [];
+            input.forEach(feild => {
+            if(!isEmpty(field)){
+                e.preventDefault();
+                messages.push('Feilds can not be empty.');
+            }
+            return false;
+        });
+        })
+
+        function isEmpty(field){
+            if (field.value === "" || field.value == null){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    </script>
+{% endblock %}
+
