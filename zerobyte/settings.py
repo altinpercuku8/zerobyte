@@ -122,8 +122,9 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     # Add paths to additional static file directories here
-    os.path.join(BASE_DIR, 'authentication/static'),
-    os.path.join(BASE_DIR, 'myapp/static')
+    os.path.join(BASE_DIR, 'authentication/static/'),
+    os.path.join(BASE_DIR, 'myapp/static/'),
+    os.path.join(BASE_DIR, 'threads/static/'),
     # You can add more directories if needed
 ]
 

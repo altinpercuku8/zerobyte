@@ -5,18 +5,53 @@
 Threads
 {% endblock %}
 
-
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/thread.css' %}">
+{% endblock %}
 
 {% block body %}
 
 
+<div class="container threads-container">
+    {% for thread in threads %}
+        <div class="card my-4">
+            <div class="card-body">
+                <div class="card-title fs-2 fw-bold">
+                    {{ thread.thread_title }}
+                </div>
+                <div class="card-text px-2 text-muted">
+                    {{ thread.thread_content }}
+                </div>
+                <div class="d-flex mt-2 justify-content-between card-info">
+                    <div class="date">
+                        {{ thread.thread_date }}
+                    </div>
+                    <div class="author">
+                        @{{ thread.thread_author }}
+                    </div>
+                </div>
+                {% if thread.thread_author == request.user %}
+                    <div class="deletion float-right text-danger">
+                        <a href="{% url 'delete' pk=thread.id %}" class="text-reset"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+    {% endfor %}
+</div>
+
+<div class="container form-container my-4">
+    <div class="alert alert-info text-center">
+        Use the form down below to post a thread:
+    </div>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            <label for="thread_title">Thread title</label>
+            {{ form.thread_title }}
+            <label for="thread_content">Thread content</label>
+            {{ form.thread_content }}
             <button type="submit">Post</button>
         </form>
-
-        {% for thread in threads %}
-        <div class="thread">{{ thread.thread_title }}</div>
-        {% endfor %}
+    </div>
 {% endblock %}

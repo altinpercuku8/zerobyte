@@ -36,7 +36,7 @@ def login_user(request):
                 login(request, user)
                 return redirect('home')
             else:
-                messages.info(request, f'{username} does not exist.')
+                messages.info(request, 'Username/Password is incorrect.')
         return render(request, 'authentication/login.html')
     else:
         return redirect('home')
